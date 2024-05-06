@@ -43,7 +43,7 @@ function getWeather(city) {
         </div>
       `;
 
-      return fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`);
+      return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={0e690931baecff2c3c521985bc8b6de9}`);
     })
     .then(response => {
       if (!response.ok) {
