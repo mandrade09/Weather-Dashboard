@@ -42,11 +42,14 @@ main {
   flex-direction: column;
 }
 
+
+
 .weather-card {
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
   margin: 20px;
+  display: inline-block;
 }
 
 .weather-card h2 {

@@ -1,4 +1,4 @@
-const apiKey = "0e690931baecff2c3c521985bc8b6de9"; // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
+const apiKey = "9fadc0275d40a109766c4707040ce8e9"; // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
 
 const searchForm = document.getElementById('search-form');
 const cityInput = document.getElementById('city-input');
@@ -43,7 +43,9 @@ function getWeather(city) {
         </div>
       `;
 
-      return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={0e690931baecff2c3c521985bc8b6de9}`);
+        console.log('lat', lat)
+
+      return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=9fadc0275d40a109766c4707040ce8e9&units=metric`);
     })
     .then(response => {
       if (!response.ok) {
@@ -52,14 +54,14 @@ function getWeather(city) {
       return response.json();
     })
     .then(data => {
-      const forecastData = data.daily.slice(1, 6);
+      const forecastData = data.list.slice(1, 6);
       forecast.innerHTML = '';
       forecastData.forEach(day => {
         const date = new Date(day.dt * 1000);
         const icon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
-        const temp = Math.round(day.temp.day);
-        const humidity = day.humidity;
-        const windSpeed = day.wind_speed;
+        const temp = Math.round(day.main.temp);
+        const humidity = day.main.humidity;
+        const windSpeed = day.wind.speed;
 
         const forecastCard = document.createElement('div');
         forecastCard.classList.add('weather-card');
