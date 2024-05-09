@@ -7,6 +7,7 @@ const forecast = document.getElementById('forecast');
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  
   const cityName = cityInput.value.trim();
   if (cityName) {
     getWeather(cityName);
@@ -33,6 +34,16 @@ function getWeather(city) {
       const temp = Math.round(data.main.temp);
       const humidity = data.main.humidity;
       const windSpeed = data.wind.speed;
+      const cities = JSON.parse(localStorage.getItem("cities")) || [];
+      
+      // save city data to local storage
+      const cityData = {
+        name: cityName, 
+        lat,
+        lon,
+      }
+      cities.push(cityData)
+      localStorage.setItem("cities", JSON.stringify(cities));
 
       currentWeather.innerHTML = `
         <div class="weather-card">
