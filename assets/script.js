@@ -28,7 +28,7 @@ function getForecast(city) {
 
 // Function to display current weather
 function displayCurrentWeather(data) {
-  const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+  const iconUrl = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
   currentWeatherSection.innerHTML = `
     <div class="weather-card">
       <h2>${data.name} (${new Date().toLocaleDateString()})</h2>
@@ -46,7 +46,7 @@ function displayForecast(data) {
   for (let i = 0; i < data.list.length; i += 8) {
     const forecast = data.list[i];
     const forecastDate = new Date(forecast.dt * 1000).toLocaleDateString();
-    const iconUrl = `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
+    const iconUrl = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
     const forecastCard = document.createElement("div");
     forecastCard.classList.add("weather-card");
     forecastCard.innerHTML = `
