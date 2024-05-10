@@ -35,48 +35,24 @@ button:hover {
   background-color: #54af4c;
 }
 
-/* main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-} */
-
 main {
   display: flex;
-  flex-direction: row; /* Change flex direction to row */
+  flex-direction: row;
 }
 
-.weather-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 20px;
-  display: inline-block;
-}
-
-.weather-card h2 {
-  margin-top: 10px;
-}
-
-.weather-card p {
-  margin: 5px;
-}
-
-/* Style for the search history */
 #search-history {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 10px;
   margin: 20px;
-  width: 200px; /* Fixed width for the search history */
+  width: 200px;
   position: relative;
 }
 
 #search-history ul {
   list-style-type: none;
   padding: 0;
-  margin: 0; /* Remove default margin */
+  margin: 0;
 }
 
 #search-history ul li {
@@ -93,5 +69,36 @@ main {
 
 .search-history-item:hover {
   background-color: #54af4c;
+}
+
+#weather-display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#current-weather {
+  margin-bottom: 10px;
+}
+
+#forecast {
+  display: flex;
+}
+
+.weather-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-right: 10px;
+  margin-top: 20px;
+  max-width: 1060px;
+}
+
+.weather-card h2 {
+  margin-top: 10px;
+}
+
+.weather-card p {
+  margin: 5px;
 }
 
