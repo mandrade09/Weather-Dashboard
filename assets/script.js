@@ -4,6 +4,8 @@ const searchForm = document.getElementById('search-form');
 const cityInput = document.getElementById('city-input');
 const currentWeather = document.getElementById('current-weather');
 const forecast = document.getElementById('forecast');
+const searchHistory = document.getElementById('search-history');
+
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -84,8 +86,36 @@ function getWeather(city) {
         `;
         forecast.appendChild(forecastCard);
       });
+  
     })
     .catch(error => {
       alert(error.message);
     });
 }
+
+// Function to render the search history
+function renderSearchHistory() {
+  searchHistory.innerHTML = '';
+  const cities = JSON.parse(localStorage.getItem("cities")) || [];
+  cities.forEach(city => {
+    const cityItem = document.createElement('li');
+    cityItem.textContent = city.name;
+    cityItem.addEventListener('click', () => {
+      getWeather(city.name, city.lat, city.lon);
+    });
+    searchHistory.appendChild(cityItem);
+  });
+}
+
+// save city data to local storage
+const cityData = {
+  name: city, 
+  lat,
+  lon,
+}
+cities.push(cityData)
+localStorage.setItem("cities", JSON.stringify(cities));
+
+// Render search history
+renderSearchHistory();
+
