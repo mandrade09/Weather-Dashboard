@@ -35,14 +35,17 @@ button:hover {
   background-color: #54af4c;
 }
 
-main {
+/* main {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+} */
+
+main {
+  display: flex;
+  flex-direction: row; /* Change flex direction to row */
 }
-
-
 
 .weather-card {
   border: 1px solid #ddd;
@@ -58,4 +61,35 @@ main {
 
 .weather-card p {
   margin: 5px;
+}
+
+/* Style for the search history */
+#search-history {
+  background-color: #4caf8e;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+  width: 200px; /* Fixed width for the search history */
+  position: relative;
+}
+
+#search-history ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Remove default margin */
+}
+
+#search-history ul li {
+  margin-bottom: 10px;
+}
+
+.search-history-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-history-item:hover {
+  background-color: #ddd;
 }
